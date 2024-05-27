@@ -1,6 +1,8 @@
 # Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges
 
-This is the official repository for the paper Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges.
+[![arXiv](https://img.shields.io/badge/arXiv-2405.15604-b31b1b.svg)](https://arxiv.org/abs/2405.15604)
+
+This is the official repository for the paper **Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges**.
 
 <p float="left">
   <img src="under_construction.png" width="800" />
@@ -67,5 +69,12 @@ The project has multiple scripts included, each used for separate parts of the p
 If you use this repository or our paper for your research work, please cite us in the following way.
 
 ```
-coming soon
+@misc{becker2024text,
+      title={Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges}, 
+      author={Jonas Becker and Jan Philip Wahle and Bela Gipp and Terry Ruas},
+      year={2024},
+      eprint={2405.15604},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```

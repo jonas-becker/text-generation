@@ -9,8 +9,25 @@ This repository is under construction. Please be patient until we add more infor
 ## Methodlogy
 The paper documents the detailed pipeline of this systematic literature review. This figure gives you an overview of how we sample 244 works relevant to text generation.
 
-<img src="pipeline.png" />
+<img src="pipeline.png"/>
 
+## Text Generation Tasks
+Our literature review identifies five most prominent areas related to text generation, namely open-ended text generation,
+summarization, translation, paraphrasing, and question answering.
+
+| **Task**       | **Description** |
+|-----------------|--------------|
+| Open-ended text generation  | Newly generated text is iteratively conditioned on the previous context.    |
+| Summarization         |   Generating a text from one or more texts conveying information in a shorter format.     |
+| Translation      |  Converting a source text in language A to a target language B.    |
+| Paraphrasing    |  Generating text that has (approximately) identical meaning but uses different words or structures.   |
+| Question answering    |  Takes a question as input text and outputs a streamlined answer or a list of possible answers.  |
+
+For each of these tasks, we identify major sub-tasks and relevant challenges.
+
+<p align="center">
+  <img src="tasks.png" width="800"/>
+</p>
 
 ## Evaluation Metrics
 We provide an overview of model-free and model-based automatic metrics as well as methodologies for human evaluation. "Used" marks the number of papers that consider the metric in

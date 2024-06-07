@@ -4,11 +4,13 @@
 
 This is the official repository for the paper **Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges**.
 
-<p float="left">
-  <img src="under_construction.png" width="800" />
-</p>
+This repository is under construction. Please be patient until we add more information. Thank you!
 
-This repository is under construction. Please be patient until we sort things out. Thank you!
+## Methodlogy
+The paper documents the detailed pipeline of this systematic literature review. This figure gives you an overview of how we sample 244 works relevant to text generation.
+
+<img src="pipeline.png" />
+
 
 ## Evaluation Metrics
 We provide an overview of model-free and model-based automatic metrics as well as methodologies for human evaluation. "Used" marks the number of papers that consider the metric in

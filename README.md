@@ -67,7 +67,11 @@ We find that model-free n-gram-based metrics are by far the most used metrics wi
 
 ## Pipeline
 
-### Initial Search
+### Remarks
+
+The number of works that we retrieve through our systematic pipeline drops off after 2022 (see the figure below).
+Additionally, the average number of citations drops, indicating that citations are not a good factor for measuring paper relevance for recent papers.
+To improve coverage, we do not exclude papers from 2022+ by the citation criterion and supplement our selection of works with additional and more recent works.
 
 <p float="left">
   <img src="output/figures/avg_citations.png" width="400" />

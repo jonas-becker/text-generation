@@ -6,7 +6,7 @@ This is the official repository for the paper **Text Generation: A Systematic Li
 
 This repository is under construction. Please be patient until we add more information. Thank you!
 
-## Methodlogy
+## Methodology
 The paper documents the detailed pipeline of this systematic literature review. This figure gives you an overview of how we sample 244 works relevant to text generation.
 
 <img src="pipeline.png"/>

@@ -65,36 +65,18 @@ We find that model-free n-gram-based metrics are by far the most used metrics wi
 |             |                | [Pearson Correlation](https://aclanthology.org/2020.acl-main.167/)     | Displays the agreement between annotators by measuring linear correlation.                    | 3     |
 |             |                | [Spearman Correlation](https://dl.acm.org/doi/10.1145/3442188.3445924) | Displays the monotonic relationships on ranked data.                                          | 2     |
 
-## Pipeline
-
-### Remarks
-
-The number of works that we retrieve through our systematic pipeline drops off after 2022 (see the figure below).
-Additionally, the average number of citations drops, indicating that citations are not a good factor for measuring paper relevance for recent papers.
-To improve coverage, we do not exclude papers from 2022+ by the citation criterion and supplement our selection of works with additional and more recent works.
-
-<p float="left">
-  <img src="output/figures/avg_citations.png" width="400" />
-  <img src="output/figures/yearly_distribution.png" width="400" /> 
-</p>
-
-### Manual Filtering
-
-We reduced 279 papers to 136 papers by reading their titles and abstracts.
-You can download a PDF containing our relevance judgments [here](https://github.com/jonas-becker/review-on-machine-generated-text/blob/main/relevance_judgements.pdf).
-
 ---
 
 ## Setup
+
+### Install
 
 We recommend using Python 3.10 for this project.
 
 First, install the requirements:
 ```pip install -r requirements.txt```
 
----
-
-### Code
+### Code Structure
 
 The project has multiple scripts included, each used for separate parts of the pipeline.
 
@@ -102,6 +84,12 @@ The project has multiple scripts included, each used for separate parts of the p
 1) `tokens.py`: You need an API key to use the Semantic Scholar API. This is the place to put it.
 2) `search.py`: The initial retrieval of scientific works through the Semantic Scholar API.
 3) `filter.py`: The automated filtering process that selects the top five works per query and year by influential citation counts.
+
+### Run
+
+Run parts of the pipeline: 1) `python search.py` and 2) `python filter.py`.
+
+---
 
 ## Citation
 If you use this repository or our paper for your research work, please cite us in the following way.

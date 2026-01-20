@@ -20,6 +20,8 @@ print("Total papers (2020+): " + str(df[df["year"] >= 2020].shape[0]))
 print("Total papers (2021+): " + str(df[df["year"] >= 2021].shape[0]))
 print("Total papers (2022+): " + str(df[df["year"] >= 2022].shape[0]))
 print("Total papers (2023+): " + str(df[df["year"] >= 2023].shape[0]))
+print("Total papers (2024+): " + str(df[df["year"] >= 2024].shape[0]))
+print("Total papers (2025+): " + str(df[df["year"] >= 2025].shape[0]))
 
 interdisciplinary_fields = [    # checked manually
     'Art',
@@ -102,6 +104,8 @@ top_df_influentialCitationCount = top_df_influentialCitationCount.drop_duplicate
 print(f"Reduced the amount of papers down to {top_df_influentialCitationCount.shape[0]} after deduplication.")
 print(f"Amount of papers from 2017+: {top_df_influentialCitationCount[top_df_influentialCitationCount['year']>=2017].shape[0]}")
 print(f"Amount of papers from 2023: {top_df_influentialCitationCount[top_df_influentialCitationCount['year']==2023].shape[0]}")
+print(f"Amount of papers from 2024: {top_df_influentialCitationCount[top_df_influentialCitationCount['year']==2024].shape[0]}")
+print(f"Amount of papers from 2025: {top_df_influentialCitationCount[top_df_influentialCitationCount['year']==2025].shape[0]}")
 
 top_df_influentialCitationCount.to_csv(f"output/extraction/topX_YearSubquery.csv", sep=";", header=True)
 
@@ -116,6 +120,8 @@ print("Total papers (2020+): " + str(df[df["year"] >= 2020].shape[0]))
 print("Total papers (2021+): " + str(df[df["year"] >= 2021].shape[0]))
 print("Total papers (2022+): " + str(df[df["year"] >= 2022].shape[0]))
 print("Total papers (2023+): " + str(df[df["year"] >= 2023].shape[0]))
+print("Total papers (2024+): " + str(df[df["year"] >= 2024].shape[0]))
+print("Total papers (2025+): " + str(df[df["year"] >= 2025].shape[0]))
 
 interdisciplinary_fields = [    # checked manually
     'Art',

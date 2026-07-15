@@ -4,24 +4,30 @@
 
 This is the official repository for the paper **Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges**.
 
-This repository is under construction. Please be patient until we add more information. Thank you!
+Our systematic literature review comprises **257 papers** covering the period from **January 2017 to December 2025**. We categorize text generation contributions into five main tasks—open-ended text generation, summarization, translation, paraphrasing, and question answering—and assess evaluation methodologies (model-free, model-based, LLM-as-a-judge, and human evaluation). We further discuss nine challenges common to recent text generation work: bias, reasoning, hallucinations, misuse, privacy, interpretability, transparency, datasets, and computing.
 
 ## Methodology
-The paper documents the detailed pipeline of this systematic literature review. This figure gives you an overview of how we sample 244 works relevant to text generation.
+
+The paper documents the detailed pipeline of this systematic literature review. The figure below gives an overview of how we arrive at 257 reviewed works:
+
+1. **Search & Retrieval** — 30 Semantic Scholar queries yield 3,107 publications.
+2. **Automatic Filtering** — Temporal and citation criteria reduce this to 381 works.
+3. **Manual Assessment** — Title, abstract, and full-text review of relevant papers.
+4. **Refined Selection** — Second-level references (+68) and subfield exploration (+95) bring the final count to **257 papers**.
 
 <img src="pipeline.png"/>
 
 ## Text Generation Tasks
-Our literature review identifies five most prominent areas related to text generation, namely open-ended text generation,
-summarization, translation, paraphrasing, and question answering.
 
-| **Task**       | **Description** |
-|-----------------|--------------|
-| Open-ended text generation  | Newly generated text is iteratively conditioned on the previous context.    |
-| Summarization         |   Generating a text from one or more texts conveying information in a shorter format.     |
-| Translation      |  Converting a source text in language A to a target language B.    |
-| Paraphrasing    |  Generating text that has (approximately) identical meaning but uses different words or structures.   |
-| Question answering    |  Takes a question as input text and outputs a streamlined answer or a list of possible answers.  |
+Our literature review identifies five prominent areas related to text generation: open-ended text generation, summarization, translation, paraphrasing, and question answering.
+
+| **Task** | **Description** |
+|----------|-----------------|
+| Open-ended text generation | Newly generated text is iteratively conditioned on the previous context so that the final output appears coherent and fluent. This also includes modern, instruction-tuned AI assistants. |
+| Summarization | Generating a text from one or more texts to convey information in a shorter format. |
+| Translation | Converting a source text in language A to a target language B. |
+| Paraphrasing | Generating text that has (approximately) identical meaning but uses different words or structures. |
+| Question answering | Takes a question as input text and outputs a streamlined answer or a list of possible answers based on background knowledge. |
 
 For each of these tasks, we identify major sub-tasks and relevant challenges.
 
@@ -29,41 +35,57 @@ For each of these tasks, we identify major sub-tasks and relevant challenges.
   <img src="tasks.png" width="800"/>
 </p>
 
+## Challenges
+
+Beyond task-specific challenges (e.g., coherence in story generation, faithfulness in summarization, low-resource languages in translation), we identify **nine overall challenges** common to recent text generation publications:
+
+| **Challenge** | **Description** |
+|---------------|-----------------|
+| Bias | Systematically distorted output that amplifies biases present in training data. |
+| Reasoning | The capability to infer choices logically and sensibly from source context. |
+| Hallucinations | Generated content that is not grounded in or supported by the input or facts. |
+| Misuse | The potential for text generation systems to be used for harmful purposes (e.g., misinformation). |
+| Privacy | Risks of memorizing and leaking sensitive information from training data. |
+| Interpretability | Understanding how and why a system produces a particular output. |
+| Transparency | Disclosure of model details, data sources, and limitations. |
+| Datasets | Availability, quality, and diversity of corpora for training and evaluation. |
+| Computing | Resource requirements and environmental costs of training and inference. |
+
 ## Evaluation Metrics
-We provide an overview of model-free and model-based automatic metrics as well as methodologies for human evaluation. "Used" marks the number of papers that consider the metric in
-their publication from our 136 filtered Semantic Scholar documents (proposing, surveying, or applying).
 
-We find that model-free n-gram-based metrics are by far the most used metrics within the works we cover. Model-based approaches are usually employed in a hybrid manner, combining embeddings with rule-based methods. Several works use human evaluation for performance measurements while often disregarding inter-annotator agreement scores.
+We provide an overview of model-free and model-based automatic metrics as well as methodologies for human evaluation and LLM-as-a-judge. "Used" marks the number of papers that consider the metric in their publication from our systematically retrieved Semantic Scholar documents (2017–2023) that underwent full manual assessment (cf. Section 2.3 of the paper).
 
-| **Type**       | **Category** | **Metric**       | **Description**                                                                               | **Used** |
-|-----------------|--------------|------------------|-----------------------------------------------------------------------------------------------|----------|
-| **Model-free**      | N-gram       | [BLEU](https://www.aclweb.org/anthology/P02-1040/) | Textual overlap between source and reference (precision).                                    | 69       |
-|                 |              | [ROUGE](https://www.aclweb.org/anthology/W04-1013/) | Textual overlap between source and reference (recall).                                       | 46       |
-|                 |              | [METEOR](https://www.aclweb.org/anthology/W05-0909/) | Textual overlap between source and reference (precision and recall).                         | 32       |
-|                 |              | [CIDEr](https://openaccess.thecvf.com/content_cvpr_2015/html/Vedantam_CIDEr_Consensus-Based_Image_2015_CVPR_paper.html) | Measures consensus on multiple reference texts.                                               | 15       |
-|                 |              | [chrF++](https://www.aclweb.org/anthology/W17-4770/) | Character-based F-score computed using n-grams.                                              | 13       |
-|                 |              | [Dist-n](https://www.aclweb.org/anthology/N16-1014/) | Measures generation diversity by the percentage of distinct n-grams.                         | 8        |
-|                 |              | [NIST](https://dl.acm.org/doi/10.5555/1289189.1289273) | Alters BLEU to also consider n-gram informativeness.                                         | 6        |
-|                 |              | [Self-BLEU](https://dl.acm.org/doi/10.1145/3209978.3210080) | Measures generation diversity by calculating BLEU between generated samples.                 | 2        |
-|                 | Statistical  | [Perplexity](https://aclanthology.org/2023.acl-long.13/) | Fluency metric based on the likelihood of word sequences.                                    | 23       |
-|                 |              | [Word Error Rate](https://aclanthology.org/D18-1150/) | The rate of words that are different from a reference sequence based on the Levenshtein distance. | 11       |
-|                 | Graph        | [SPICE](https://link.springer.com/chapter/10.1007/978-3-319-46454-1_24) | Measures the semantic similarity of two texts by the distance of their scene graphs.         | 6        |
+We find that model-free n-gram-based metrics are by far the most used metrics within the works we cover. Model-based approaches are usually employed in a hybrid manner, combining embeddings with rule-based methods. Several works use human evaluation for performance measurements while often disregarding inter-annotator agreement scores. LLM-as-a-judge offers a scalable alternative to human raters but exhibits systematic biases such as position and verbosity effects.
+
+| **Type** | **Category** | **Metric** | **Description** | **Used** |
+|----------|--------------|------------|-----------------|----------|
+| **Model-free** | N-gram | [BLEU](https://www.aclweb.org/anthology/P02-1040/) | Textual overlap between source and reference (precision). | 69 |
+| | | [ROUGE](https://www.aclweb.org/anthology/W04-1013/) | Textual overlap between source and reference (recall). | 46 |
+| | | [METEOR](https://www.aclweb.org/anthology/W05-0909/) | Textual overlap between source and reference (precision and recall). | 32 |
+| | | [CIDEr](https://openaccess.thecvf.com/content_cvpr_2015/html/Vedantam_CIDEr_Consensus-Based_Image_2015_CVPR_paper.html) | Measures consensus on multiple reference texts. | 15 |
+| | | [chrF++](https://www.aclweb.org/anthology/W17-4770/) | Character-based F-score computed using n-grams. | 13 |
+| | | [Dist-n](https://www.aclweb.org/anthology/N16-1014/) | Measures generation diversity by the percentage of distinct n-grams. | 8 |
+| | | [NIST](https://dl.acm.org/doi/10.5555/1289189.1289273) | Alters BLEU to also consider n-gram informativeness. | 6 |
+| | | [Self-BLEU](https://dl.acm.org/doi/10.1145/3209978.3210080) | Measures generation diversity by calculating BLEU between generated samples. | 2 |
+| | Statistical | [Perplexity](https://aclanthology.org/2023.acl-long.13/) | Fluency metric based on the likelihood of word sequences. | 23 |
+| | | [Word Error Rate](https://aclanthology.org/D18-1150/) | The rate of words that differ from a reference sequence based on the Levenshtein distance. | 11 |
+| | Graph | [SPICE](https://link.springer.com/chapter/10.1007/978-3-319-46454-1_24) | Measures the semantic similarity of two texts by the distance of their scene graphs. | 6 |
 | | | | | |
-| **Model-based**     | Hybrid       | [BERTScore](https://arxiv.org/abs/1904.09675) | Contextual token similarity to measure textual overlap.                                      | 13       |
-|                 |              | [MoverScore](https://aclanthology.org/D19-1053/) | Uses contextualized embeddings and captures both intersection and deviation from the reference for a similarity score. | 6        |
-|                 |              | [Word Mover Distance](https://proceedings.mlr.press/v37/kusnerb15.html) | Distance metric to measure the dissimilarity of two texts. | 2        |
-|                 | Trained      | [BLEURT](https://aclanthology.org/2020.acl-main.704/) | Models human judgement on text quality. | 4        |
-|                 |              | [BARTScore](https://proceedings.neurips.cc/paper/2021/hash/e4d2b6e6fdeca3e60e0f1a62fee3d9dd-Abstract.html) | Promptable metric that models human judgments on faithfulness besides precision and recall. | 3        |
+| **Model-based** | Hybrid | [BERTScore](https://arxiv.org/abs/1904.09675) | Contextual token similarity to measure textual overlap. | 13 |
+| | | [MoverScore](https://aclanthology.org/D19-1053/) | Uses contextualized embeddings and captures both intersection and deviation from the reference for a similarity score. | 6 |
+| | | [Word Mover Distance](https://proceedings.mlr.press/v37/kusnerb15.html) | Distance metric to measure the dissimilarity of two texts. | 2 |
+| | Trained | [BLEURT](https://aclanthology.org/2020.acl-main.704/) | Models human judgement on text quality. | 4 |
+| | | [BARTScore](https://proceedings.neurips.cc/paper/2021/hash/e4d2b6e6fdeca3e60e0f1a62fee3d9dd-Abstract.html) | Likelihood metric for assessing candidate consistency with the source or reference text. | 3 |
 | | | | | |
-| **Human**       | Performance    | [Likert Scale](https://psycnet.apa.org/record/1933-01885-001)                           | Humans can choose on a scale, e.g., from 1 (horrible quality) to 5 (perfect quality).         | 22    |
-|             |                | [Pairwise Comparison](https://aclanthology.org/W18-6556/)         | Humans choose the best example from two samples.                                              | 10    |
-|             |                | [Turing Test](https://www.ijcai.org/proceedings/2018/606)              | Can quantify how distinguishable human text is from machine-generated text.                   | 6     |
-|             |                | [Binary](https://dl.acm.org/doi/10.1145/3184558.3186345)                 | Humans are answering binary questions with yes or no.                                         | 3     |
-|             |                | [Best-Worst Scaling](https://journals.sagepub.com/doi/10.1177/074391569201100202)                       | From a list of examples, humans are instructed to select the best and worst output.           | 2     |
-|             | Agreement      | [Krippendorff Alpha](https://www.jstor.org/stable/270787?origin=crossref)              | Measures the disagreement between annotators for nominal, ordinal, and metric data.           | 4     |
-|             |                | [Fleiss Kappa](https://psycnet.apa.org/doiLanding?doi=10.1037%2Fh0031619)                | Measures the agreement on nominal data between a fixed pair of annotators.                    | 4     |
-|             |                | [Pearson Correlation](https://aclanthology.org/2020.acl-main.167/)     | Displays the agreement between annotators by measuring linear correlation.                    | 3     |
-|             |                | [Spearman Correlation](https://dl.acm.org/doi/10.1145/3442188.3445924) | Displays the monotonic relationships on ranked data.                                          | 2     |
+| **Human** | Performance | [Likert Scale](https://psycnet.apa.org/record/1933-01885-001) | Humans can choose on a scale, e.g., from 1 (horrible quality) to 5 (perfect quality). | 22 |
+| | | [Pairwise Comparison](https://aclanthology.org/W18-6556/) | Humans choose the best example from two samples. | 10 |
+| | | [Turing Test](https://www.ijcai.org/proceedings/2018/606) | Can quantify how distinguishable human text is from machine-generated text. | 6 |
+| | | [Binary](https://dl.acm.org/doi/10.1145/3184558.3186345) | Humans are answering binary questions with yes or no. | 3 |
+| | | [Best-Worst Scaling](https://journals.sagepub.com/doi/10.1177/074391569201100202) | From a list of examples, humans are instructed to select the best and worst output. | 2 |
+| | Agreement | [Krippendorff Alpha](https://www.jstor.org/stable/270787?origin=crossref) | Measures the disagreement between annotators for nominal, ordinal, and metric data. | 4 |
+| | | [Fleiss Kappa](https://psycnet.apa.org/doiLanding?doi=10.1037%2Fh0031619) | Measures the agreement on nominal data between a fixed pair of annotators. | 4 |
+| | | [Pearson Correlation](https://aclanthology.org/2020.acl-main.167/) | Displays the agreement between annotators by measuring linear correlation. | 3 |
+| | | [Spearman Correlation](https://dl.acm.org/doi/10.1145/3442188.3445924) | Displays the monotonic relationships on ranked data. | 2 |
 
 ---
 
@@ -80,10 +102,10 @@ First, install the requirements:
 
 The project has multiple scripts included, each used for separate parts of the pipeline.
 
-1) `setup.py`: Defines the parameters used for searching and filtering the scientific works.
-1) `tokens.py`: You need an API key to use the Semantic Scholar API. This is the place to put it.
-2) `search.py`: The initial retrieval of scientific works through the Semantic Scholar API.
-3) `filter.py`: The automated filtering process that selects the top five works per query and year by influential citation counts.
+1. `setup.py`: Defines the parameters used for searching and filtering the scientific works.
+2. `tokens.py`: You need an API key to use the Semantic Scholar API. This is the place to put it.
+3. `search.py`: The initial retrieval of scientific works through the Semantic Scholar API.
+4. `filter.py`: The automated filtering process that selects the top five works per query and year by influential citation counts.
 
 ### Run
 
@@ -92,15 +114,16 @@ Run parts of the pipeline: 1) `python search.py` and 2) `python filter.py`.
 ---
 
 ## Citation
+
 If you use this repository or our paper for your research work, please cite us in the following way.
 
 ```
 @misc{becker2024text,
-      title={Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges}, 
-      author={Jonas Becker and Jan Philip Wahle and Bela Gipp and Terry Ruas},
-      year={2024},
-      eprint={2405.15604},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+  title         = {Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges},
+  author        = {Jonas Becker and Jan Philip Wahle and Bela Gipp and Terry Ruas},
+  year          = {2024},
+  eprint        = {2405.15604},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
 }
 ```

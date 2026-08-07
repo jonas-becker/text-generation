@@ -1,8 +1,9 @@
 # Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges
 
+[![JAIR](https://img.shields.io/badge/JAIR-10.1613%2Fjair.1.22258-0B3D91.svg)](https://www.jair.org/index.php/jair/article/view/22258)
 [![arXiv](https://img.shields.io/badge/arXiv-2405.15604-b31b1b.svg)](https://arxiv.org/abs/2405.15604)
 
-This is the official repository for the paper **Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges**.
+This is the official repository for the paper **Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges**, published in the [Journal of Artificial Intelligence Research (JAIR)](https://www.jair.org/index.php/jair/article/view/22258).
 
 Our systematic literature review comprises **257 papers** covering the period from **January 2017 to December 2025**. We categorize text generation contributions into five main tasks—open-ended text generation, summarization, translation, paraphrasing, and question answering—and assess evaluation methodologies (model-free, model-based, LLM-as-a-judge, and human evaluation). We further discuss nine challenges common to recent text generation work: bias, reasoning, hallucinations, misuse, privacy, interpretability, transparency, datasets, and computing.
 
@@ -118,12 +119,13 @@ Run parts of the pipeline: 1) `python search.py` and 2) `python filter.py`.
 If you use this repository or our paper for your research work, please cite us in the following way.
 
 ```
-@misc{becker2024text,
-  title         = {Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges},
-  author        = {Jonas Becker and Jan Philip Wahle and Bela Gipp and Terry Ruas},
-  year          = {2024},
-  eprint        = {2405.15604},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.CL}
+@article{becker2026text,
+  title   = {Text Generation: A Systematic Literature Review of Tasks, Evaluation, and Challenges},
+  author  = {Jonas Becker and Jan Philip Wahle and Bela Gipp and Terry Ruas},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {86},
+  year    = {2026},
+  doi     = {10.1613/jair.1.22258},
+  url     = {https://www.jair.org/index.php/jair/article/view/22258}
 }
 ```
